@@ -45,7 +45,7 @@ namespace Microsoft.Teams.Apps.Timesheet.Authentication
             {
                 options.Authority = $"{azureSettings.Instance}/{azureSettings.TenantId}/v2.0";
                 options.SaveToken = true;
-                options.TokenValidationParameters.ValidAudiences = new List<string> { azureSettings.ClientId, azureSettings.ApplicationIdURI.ToUpperInvariant() };
+                options.TokenValidationParameters.ValidAudiences = new List<string> { azureSettings.ClientId, azureSettings.ApplicationIdURI.ToUpperInvariant(), "https://graph.microsoft.com/", "39b8e33f-3019-4884-966d-f0047f0b2962" };
                 options.TokenValidationParameters.AudienceValidator = AuthenticationServiceCollectionExtensions.AudienceValidator;
                 options.TokenValidationParameters.ValidIssuers = (azureSettings.ValidIssuers?
                     .Split(new char[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries)?
